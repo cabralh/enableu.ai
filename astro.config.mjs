@@ -3,6 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import netlify from '@astrojs/netlify/functions';
 
 export default defineConfig({
   site: "https://enableu.ai",
