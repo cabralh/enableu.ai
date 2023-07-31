@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Approach</Fragment>
+      <Fragment slot="desc">You are the center of our process, keeping things customer focused, every step of the way.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Customer-driven approach.
+      </h2>
+      <p class="text-lg leading-relaxed text-slate-500">
+        At our digital product development company, we firmly believe that designing products with the customer in mind is the key to success. Customers are at the heart of every business, and their needs, preferences, and pain points serve as guiding stars throughout our creative process. 
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        By understanding and empathizing with our customers, we gain invaluable insights that shape our designs and enable us to craft products that seamlessly integrate into their lives. Putting the customer first ensures that our creations are not only aesthetically pleasing but also functionally intuitive and purpose-driven. We take pride in delivering solutions that resonate with our target audience, forging strong connections that lead to lasting brand loyalty and a positive impact on the market.
+      </p>
+      <br>
+      <img src="/public/approach.svg" alt="Customer Centric Approach Diagram.">
+    </div>
+  </Container>
+</Layout>

@@ -20,43 +20,29 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+        Enabling you, the creator.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        Welcome to our digital product development company! We are a dynamic and innovative team driven by our passion for transforming ideas into real-world designs and products that leave a lasting impact on the market.
       </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
-      {
-        publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar.src}
-                alt={teamMemberEntry.data.avatar.alt}
-                sizes="(max-width: 800px) 100vw, 400px"
-                widths={[200, 400]}
-                aspectRatio="1:1"
-                background="#ffffff"
-                fit="cover"
-                position="center"
-                class="w-full rounded-md rounded transition group-hover:-translate-y-1 group-hover:shadow-xl"
-              />
-            </div>
-
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">
-                {teamMemberEntry.data.name}
-              </h2>
-              <h3 class="text-sm text-slate-500">
-                {teamMemberEntry.data.title}
-              </h3>
-            </div>
-          </div>
-        ))
-      }
+      <p class="text-lg leading-relaxed text-slate-500">
+        In our creative sanctuary, we thrive on the exhilarating journey of turning visions into reality. With a diverse blend of talents, ranging from visionary designers and brilliant engineers to perceptive market analysts, we come together as a force to reckon with.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Our daily mantra revolves around embracing the challenges that come our way. We believe that the most groundbreaking ideas are often born from the toughest obstacles. As a team, we relish stepping out of our comfort zones, navigating uncharted waters, and reveling in the thrill of discovery.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        At the core of our philosophy lies a deep-rooted commitment to understanding the needs and desires of our clients. We take the time to listen, to empathize, and to envisage the future they envision. Armed with this intimate understanding, we embark on our collective journey of creation.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        Our design process is akin to an elaborate dance, where aesthetics and functionality blend seamlessly to bring forth stunning and intuitive products.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        In the ever-evolving landscape of digital product development, we stand tall as trailblazers, embracing change with open arms. Together, we march forward, fueled by the excitement of unlocking new possibilities and crafting products that leave indelible imprints on the world.
+      </p>
+      <p class="text-lg leading-relaxed text-slate-500">
+        So, if you have a spark of an idea that you wish to see manifest into reality, rest assured that our anonymous team is here, ready to transform your dreams into digital masterpieces that resonate with hearts and minds alike. Join us on this exhilarating journey of creation, innovation, and impact. Together, let's shape the future.
+      </p>
     </div>
   </Container>
 </Layout>

@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Services</Fragment>
+      <Fragment slot="desc">What we offer to help your idea flourish.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Mechanical Design & Development
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Create your prototype or minimum viable product using the CAD file package, which includes parts, assemblies, and drawings that I can provide.
+        </p>
+      </div>
+      <hr>
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Customer-Driven Design
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          At Enable, we adopt a customer-driven design approach. Should you require help in designing or determining the most suitable design for your minimum viable product, we offer comprehensive analysis based on your specific needs. This analysis will be transformed into several mockups to ensure a tailored and efficient solution.
+        </p>
+      </div>
+      <hr>
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Design for Additive Manufacturing (DfAM)
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Our expertise lies in crafting designs optimized specifically for additive manufacturing. We have extensive experience working with a range of cutting-edge technologies, including FDM/FFF, SLA, MSLA/DLP, and DMLS.
+        </p>
+      </div>
+      <hr>
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Rapid Prototyping
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Enable excels in swiftly and efficiently producing mock-ups or prototypes of your design, enabling rapid iterations of your product.
+        </p>
+      </div>
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Technical Writing/Documentation
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          We are equipped to offer support in generating technical articles, essays, and marketing material that effectively captures the essence of your product.
+        </p>
+      </div>
+      <hr>
+      <br>
+    </div>
+  </Container>
+</Layout>

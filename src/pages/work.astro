@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter team entries with 'draft: false' & date before current date
+const publishedTeamMembers = await getCollection("team", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<Layout title="About">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Our Work</Fragment>
+      <Fragment slot="desc">Some of the projects we've worked on.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Ferrule Assembly
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Design of a ferrule assembly with ball lens for a microfabrication startup.
+        </p>
+        <br>
+        <img src="/public/projects-ferrule-001.png" alt="Ferrule Assembly.">
+        <br>
+      </div>
+      <hr>
+      <div>
+        <h2 class="text-2xl text-gray-800">
+          Biotechnology Instrument Design
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Detailed instrument with an enclosure and consumable interface. Collection chamber with hermetic seal. Project created for biotechnology research company.
+        </p>
+        <br>
+        <img src="/public/projects-seal-001.png" alt="Ferrule Assembly.">
+        <br>
+      </div>
+      <hr>
+      <br>
+    </div>
+  </Container>
+</Layout>
